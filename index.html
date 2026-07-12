@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Limão Cravo — Estúdio Criativo</title>
+<style>
+  :root{
+    --cream:#FBF6EE;
+    --espresso:#2B2118;
+    --citrus:#F4B03A;
+    --terracotta:#D4652F;
+    --peach:#F3D9BE;
+    --white:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--cream);
+    color:var(--espresso);
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:Arial,Helvetica,sans-serif;
+    font-weight:800;
+    text-transform:uppercase;
+    line-height:0.95;
+    letter-spacing:-0.01em;
+  }
+  a{text-decoration:none;color:inherit;}
+  img{display:block;max-width:100%;}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:absolute;top:0;left:0;right:0;z-index:10;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:28px 6%;
+  }
+  .logo{
+    display:flex;align-items:center;gap:10px;
+  }
+  .logo img{height:54px;width:54px;border-radius:50%;}
+  nav{display:flex;gap:36px;font-size:14px;font-weight:600;}
+  nav a{opacity:0.85;}
+  .btn-fale{
+    background:var(--espresso);color:var(--cream);
+    padding:10px 22px;border-radius:999px;font-size:14px;font-weight:600;
+  }
+  .lang-toggle{
+    display:flex;align-items:center;gap:6px;
+    background:rgba(43,33,24,0.06);
+    border-radius:999px;padding:4px;margin-right:18px;
+  }
+  .lang-toggle button{
+    border:none;background:transparent;cursor:pointer;
+    font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;
+    padding:6px 14px;border-radius:999px;color:var(--espresso);opacity:0.5;
+  }
+  .lang-toggle button.active{
+    background:var(--espresso);color:var(--cream);opacity:1;
+  }
+  .header-right{display:flex;align-items:center;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:92vh;
+    display:grid;grid-template-columns:1.1fr 0.9fr;
+    background:var(--white);
+  }
+  .hero-left{
+    padding:160px 6% 80px;
+    display:flex;flex-direction:column;justify-content:center;
+    z-index:2;
+  }
+  .eyebrow{
+    font-size:13px;font-weight:700;letter-spacing:0.18em;
+    color:var(--terracotta);text-transform:uppercase;margin-bottom:18px;
+  }
+  .hero-left h1{
+    font-size:clamp(40px,6vw,76px);
+    color:var(--espresso);
+  }
+  .hero-left h1 span{color:var(--terracotta);}
+  .hero-sub{
+    margin-top:24px;font-size:18px;line-height:1.6;color:#4a4136;
+    max-width:440px;
+  }
+  .hero-cta{
+    margin-top:36px;display:flex;gap:16px;align-items:center;
+  }
+  .btn-primary{
+    background:var(--terracotta);color:var(--white);
+    padding:16px 32px;border-radius:999px;font-weight:700;font-size:15px;
+    box-shadow:0 8px 24px rgba(212,101,47,0.25);
+  }
+  .btn-secondary{
+    font-weight:700;font-size:15px;color:var(--espresso);
+    border-bottom:2px solid var(--espresso);padding-bottom:4px;
+  }
+  .hero-right{
+    position:relative;
+    background:linear-gradient(160deg,var(--citrus) 0%, var(--terracotta) 100%);
+    clip-path:polygon(18% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .hero-right img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    mix-blend-mode:luminosity;opacity:0.35;
+  }
+  .badge-years{
+    position:absolute;bottom:60px;left:42%;
+    background:var(--espresso);color:var(--cream);
+    border-radius:50%;width:160px;height:160px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;box-shadow:0 16px 40px rgba(0,0,0,0.25);
+  }
+  .badge-years .num{font-family:Arial,Helvetica,sans-serif;font-weight:800;font-size:38px;}
+  .badge-years .lbl{font-size:11px;letter-spacing:0.05em;max-width:90px;margin-top:4px;}
+
+  /* ---------- DIFERENCIAIS ---------- */
+  .diff{
+    padding:100px 6%;
+    background:var(--cream);
+  }
+  .diff-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px;gap:24px;flex-wrap:wrap;}
+  .diff-head h2{font-size:clamp(28px,4vw,42px);max-width:520px;}
+  .diff-head p{max-width:340px;color:#6b6155;font-size:15px;line-height:1.6;}
+  .diff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+  .diff-card{
+    background:var(--white);border-radius:20px;padding:32px 26px;
+    border:1px solid rgba(43,33,24,0.08);
+  }
+  .diff-card .ico{
+    width:48px;height:48px;border-radius:50%;
+    background:var(--peach);color:var(--terracotta);
+    display:flex;align-items:center;justify-content:center;
+    font-family:Arial,Helvetica,sans-serif;font-weight:800;font-size:18px;margin-bottom:18px;
+  }
+  .diff-card h3{font-size:16px;text-transform:none;letter-spacing:0;margin-bottom:8px;}
+  .diff-card p{font-size:14px;color:#6b6155;line-height:1.5;}
+
+  /* ---------- PORTFOLIO ---------- */
+  .portfolio{padding:100px 6%;background:var(--espresso);color:var(--cream);}
+  .portfolio-head{margin-bottom:56px;}
+  .portfolio-head .eyebrow{color:var(--citrus);}
+  .portfolio-head h2{font-size:clamp(28px,4vw,42px);max-width:560px;color:var(--cream);}
+  .port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .port-card{
+    background:rgba(255,255,255,0.04);border-radius:18px;overflow:hidden;
+    border:1px solid rgba(255,255,255,0.08);
+    transition:transform .3s;
+  }
+  .port-card.tall{grid-row:span 2;}
+  .port-card img{width:100%;height:220px;object-fit:cover;}
+  .port-card.tall img{height:460px;}
+  .port-info{padding:20px 22px;}
+  .port-info .tag{font-size:11px;color:var(--citrus);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;}
+  .port-info h3{font-size:18px;margin-top:8px;text-transform:none;letter-spacing:0;}
+
+  /* ---------- SOBRE ---------- */
+  .sobre{
+    padding:110px 6%;
+    background:var(--white);
+    display:grid;grid-template-columns:0.9fr 1.1fr;gap:60px;align-items:center;
+  }
+  .sobre-img{position:relative;}
+  .sobre-img img{border-radius:24px;width:100%;height:520px;object-fit:cover;}
+  .sobre-img .ring{
+    position:absolute;top:-30px;right:-30px;
+    width:140px;height:140px;border-radius:50%;
+    border:14px solid var(--citrus);
+  }
+  .sobre-text .eyebrow{color:var(--terracotta);}
+  .sobre-text h2{font-size:clamp(26px,3.6vw,40px);margin-bottom:20px;color:var(--espresso);}
+  .sobre-text p{font-size:16px;line-height:1.7;color:#4a4136;max-width:520px;margin-bottom:16px;}
+  .stats{display:flex;gap:48px;margin-top:32px;}
+  .stats div .n{font-family:Arial,Helvetica,sans-serif;font-weight:800;font-size:32px;color:var(--terracotta);}
+  .stats div .l{font-size:13px;color:#6b6155;}
+
+  /* ---------- CONTATO ---------- */
+  .contato{
+    background:linear-gradient(135deg,var(--terracotta), var(--citrus));
+    padding:120px 6%;text-align:center;color:var(--espresso);
+    position:relative;
+  }
+  .contato h2{font-size:clamp(32px,5vw,58px);color:var(--white);}
+  .contato p{margin-top:18px;font-size:17px;color:rgba(255,255,255,0.9);max-width:480px;margin-inline:auto;}
+  .contato .btn-primary{
+    margin-top:36px;background:var(--espresso);display:inline-block;
+  }
+
+  footer{
+    background:var(--espresso);color:rgba(251,246,238,0.6);
+    padding:40px 6%;display:flex;justify-content:space-between;font-size:13px;
+    flex-wrap:wrap;gap:12px;
+  }
+  footer a{color:rgba(251,246,238,0.85);font-weight:600;}
+
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr;}
+    .hero-right{display:none;}
+    .hero-left{padding:140px 6% 60px;}
+    .diff-grid{grid-template-columns:repeat(2,1fr);}
+    .port-grid{grid-template-columns:1fr;}
+    .port-card.tall{grid-row:auto;}
+    .sobre{grid-template-columns:1fr;}
+    nav{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><img src="limao-cravo-logo.png" alt="Limão Cravo Estúdio Criativo"></div>
+  <nav>
+    <a href="#" data-pt="estúdio" data-en="studio">estúdio</a>
+    <a href="#" data-pt="projetos" data-en="projects">projetos</a>
+    <a href="#" data-pt="serviços" data-en="services">serviços</a>
+    <a href="#" data-pt="contato" data-en="contact">contato</a>
+  </nav>
+  <div class="header-right">
+    <div class="lang-toggle">
+      <button id="btn-pt" class="active" onclick="setLang('pt')">PT</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <a class="btn-fale" href="#" data-pt="fale com a gente" data-en="get in touch">fale com a gente</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="eyebrow" data-pt="Estúdio criativo · Ribeirão Preto" data-en="Creative studio · Ribeirão Preto">Estúdio criativo · Ribeirão Preto</div>
+    <h1 data-pt="Marcas com<br>identidade<br><span>desde 2010</span>" data-en="Brands with<br>identity<br><span>since 2010</span>">Marcas com<br>identidade<br><span>desde 2010</span></h1>
+    <p class="hero-sub" data-pt="Criamos design, branding e comunicação visual para empresas que querem ser reconhecidas — não apenas vistas. Mais de 14 anos construindo soluções criativas em Ribeirão Preto e para clientes em todo o Brasil." data-en="We create design, branding and visual communication for companies that want to be recognized — not just seen. Over 14 years building creative solutions in Ribeirão Preto and for clients across Brazil.">Criamos design, branding e comunicação visual para empresas que querem ser reconhecidas — não apenas vistas. Mais de 14 anos construindo soluções criativas em Ribeirão Preto e para clientes em todo o Brasil.</p>
+    <div class="hero-cta">
+      <a class="btn-primary" href="#" data-pt="ver projetos" data-en="view projects">ver projetos</a>
+      <a class="btn-secondary" href="#" data-pt="vamos marcar um café →" data-en="let's grab a coffee →">vamos marcar um café →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200" alt="">
+    <div class="badge-years">
+      <div class="num">14+</div>
+      <div class="lbl" data-pt="anos criando marcas" data-en="years building brands">anos criando marcas</div>
+    </div>
+  </div>
+</section>
+
+<section class="diff">
+  <div class="diff-head">
+    <h2 data-pt="Por que marcas confiam<br>na Limão Cravo" data-en="Why brands trust<br>Limão Cravo">Por que marcas confiam<br>na Limão Cravo</h2>
+    <p data-pt="Não vendemos só peças bonitas — entregamos clareza estratégica por trás de cada escolha visual." data-en="We don't just sell pretty pieces — we deliver strategic clarity behind every visual choice.">Não vendemos só peças bonitas — entregamos clareza estratégica por trás de cada escolha visual.</p>
+  </div>
+  <div class="diff-grid">
+    <div class="diff-card">
+      <div class="ico">01</div>
+      <h3 data-pt="Identidade visual" data-en="Visual identity">Identidade visual</h3>
+      <p data-pt="Marcas com personalidade própria, do conceito ao manual de aplicação." data-en="Brands with their own personality, from concept to brand guidelines.">Marcas com personalidade própria, do conceito ao manual de aplicação.</p>
+    </div>
+    <div class="diff-card">
+      <div class="ico">02</div>
+      <h3 data-pt="Comunicação visual" data-en="Visual communication">Comunicação visual</h3>
+      <p data-pt="Sinalização, ambientação, redes sociais e site — consistência em cada ponto de contato." data-en="Signage, environments, social media and website — consistency across every touchpoint.">Sinalização, ambientação, redes sociais e site — consistência em cada ponto de contato.</p>
+    </div>
+    <div class="diff-card">
+      <div class="ico">03</div>
+      <h3 data-pt="Consultoria criativa" data-en="Creative consulting">Consultoria criativa</h3>
+      <p data-pt="Organizamos a comunicação da sua marca com estratégia clara e sistemas visuais." data-en="We organize your brand's communication with clear strategy and visual systems.">Organizamos a comunicação da sua marca com estratégia clara e sistemas visuais.</p>
+    </div>
+    <div class="diff-card">
+      <div class="ico">04</div>
+      <h3 data-pt="Processo colaborativo" data-en="Collaborative process">Processo colaborativo</h3>
+      <p data-pt="Planejamos a estratégia junto com você, escutando o negócio antes de propor qualquer peça." data-en="We plan the strategy together with you, listening to the business before proposing anything.">Planejamos a estratégia junto com você, escutando o negócio antes de propor qualquer peça.</p>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio">
+  <div class="portfolio-head">
+    <div class="eyebrow" data-pt="projetos selecionados" data-en="selected projects">projetos selecionados</div>
+    <h2 data-pt="Trabalho que fala<br>por si" data-en="Work that speaks<br>for itself">Trabalho que fala<br>por si</h2>
+  </div>
+  <div class="port-grid">
+    <div class="port-card tall">
+      <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=900" alt="">
+      <div class="port-info"><div class="tag" data-pt="Branding · Café Nômade" data-en="Branding · Café Nômade">Branding · Café Nômade</div><h3 data-pt="Identidade visual completa" data-en="Full visual identity">Identidade visual completa</h3></div>
+    </div>
+    <div class="port-card">
+      <img src="https://images.unsplash.com/photo-1542435503-956c469947f6?q=80&w=900" alt="">
+      <div class="port-info"><div class="tag" data-pt="Site · Estúdio Vera" data-en="Website · Estúdio Vera">Site · Estúdio Vera</div><h3 data-pt="Site institucional" data-en="Institutional website">Site institucional</h3></div>
+    </div>
+    <div class="port-card">
+      <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=900" alt="">
+      <div class="port-info"><div class="tag" data-pt="Embalagem · Doce Raiz" data-en="Packaging · Doce Raiz">Embalagem · Doce Raiz</div><h3 data-pt="Naming + packaging" data-en="Naming + packaging">Naming + packaging</h3></div>
+    </div>
+  </div>
+</section>
+
+<section class="sobre">
+  <div class="sobre-img">
+    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=900" alt="">
+    <div class="ring"></div>
+  </div>
+  <div class="sobre-text">
+    <div class="eyebrow" data-pt="quem somos" data-en="who we are">quem somos</div>
+    <h2 data-pt="Nascemos em 2010,<br>em Ribeirão Preto" data-en="Founded in 2010,<br>in Ribeirão Preto">Nascemos em 2010,<br>em Ribeirão Preto</h2>
+    <p data-pt="Com um objetivo direto: resolver problemas reais de comunicação com soluções criativas que duram." data-en="With one clear goal: solving real communication problems with creative solutions that last.">Com um objetivo direto: resolver problemas reais de comunicação com soluções criativas que duram.</p>
+    <p data-pt="Trabalhamos lado a lado com cada cliente — entendendo o negócio, os desafios e os objetivos antes de propor qualquer peça." data-en="We work side by side with each client — understanding the business, challenges and goals before proposing anything.">Trabalhamos lado a lado com cada cliente — entendendo o negócio, os desafios e os objetivos antes de propor qualquer peça.</p>
+    <div class="stats">
+      <div><div class="n">80+</div><div class="l" data-pt="marcas atendidas" data-en="brands served">marcas atendidas</div></div>
+      <div><div class="n">14</div><div class="l" data-pt="anos de estúdio" data-en="years of studio">anos de estúdio</div></div>
+      <div><div class="n">4.9</div><div class="l" data-pt="avaliação média" data-en="average rating">avaliação média</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="contato">
+  <h2 data-pt="Quero uma marca<br>que funciona" data-en="I want a brand<br>that works">Quero uma marca<br>que funciona</h2>
+  <p data-pt="Conte pra gente seu desafio — a Limão Cravo cuida do conceito à entrega final." data-en="Tell us about your challenge — Limão Cravo takes care of everything from concept to final delivery.">Conte pra gente seu desafio — a Limão Cravo cuida do conceito à entrega final.</p>
+  <a class="btn-primary" href="#" data-pt="vamos marcar um café →" data-en="let's grab a coffee →">vamos marcar um café →</a>
+</section>
+
+<footer>
+  <div>© Limão Cravo Estúdio Criativo</div>
+  <div><a href="#">WhatsApp</a> &nbsp; <a href="#">Instagram</a> &nbsp; <a href="#" data-pt="contato@limaocravo.net" data-en="contact@limaocravo.net">contato@limaocravo.net</a></div>
+</footer>
+
+<script>
+function setLang(lang){
+  document.querySelectorAll('[data-pt]').forEach(el=>{
+    el.innerHTML = el.getAttribute('data-'+lang);
+  });
+  document.getElementById('btn-pt').classList.toggle('active', lang==='pt');
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.documentElement.lang = (lang==='pt') ? 'pt-BR' : 'en';
+}
+</script>
+
+</body>
+</html>
