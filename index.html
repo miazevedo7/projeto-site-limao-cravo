@@ -1,339 +1,394 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Limão Cravo — Estúdio Criativo</title>
-<style>
-  :root{
-    --cream:#FBF6EE;
-    --espresso:#2B2118;
-    --citrus:#F4B03A;
-    --terracotta:#D4652F;
-    --peach:#F3D9BE;
-    --white:#FFFFFF;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:var(--cream);
-    color:var(--espresso);
-    overflow-x:hidden;
-  }
-  h1,h2,h3,.display{
-    font-family:Arial,Helvetica,sans-serif;
-    font-weight:800;
-    text-transform:uppercase;
-    line-height:0.95;
-    letter-spacing:-0.01em;
-  }
-  a{text-decoration:none;color:inherit;}
-  img{display:block;max-width:100%;}
-
-  /* ---------- HEADER ---------- */
-  header{
-    position:absolute;top:0;left:0;right:0;z-index:10;
-    display:flex;justify-content:space-between;align-items:center;
-    padding:28px 6%;
-  }
-  .logo{
-    display:flex;align-items:center;gap:10px;
-  }
-  .logo img{height:54px;width:54px;border-radius:50%;}
-  nav{display:flex;gap:36px;font-size:14px;font-weight:600;}
-  nav a{opacity:0.85;}
-  .btn-fale{
-    background:var(--espresso);color:var(--cream);
-    padding:10px 22px;border-radius:999px;font-size:14px;font-weight:600;
-  }
-  .lang-toggle{
-    display:flex;align-items:center;gap:6px;
-    background:rgba(43,33,24,0.06);
-    border-radius:999px;padding:4px;margin-right:18px;
-  }
-  .lang-toggle button{
-    border:none;background:transparent;cursor:pointer;
-    font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;
-    padding:6px 14px;border-radius:999px;color:var(--espresso);opacity:0.5;
-  }
-  .lang-toggle button.active{
-    background:var(--espresso);color:var(--cream);opacity:1;
-  }
-  .header-right{display:flex;align-items:center;}
-
-  /* ---------- HERO ---------- */
-  .hero{
-    position:relative;
-    min-height:92vh;
-    display:grid;grid-template-columns:1.1fr 0.9fr;
-    background:var(--white);
-  }
-  .hero-left{
-    padding:160px 6% 80px;
-    display:flex;flex-direction:column;justify-content:center;
-    z-index:2;
-  }
-  .eyebrow{
-    font-size:13px;font-weight:700;letter-spacing:0.18em;
-    color:var(--terracotta);text-transform:uppercase;margin-bottom:18px;
-  }
-  .hero-left h1{
-    font-size:clamp(40px,6vw,76px);
-    color:var(--espresso);
-  }
-  .hero-left h1 span{color:var(--terracotta);}
-  .hero-sub{
-    margin-top:24px;font-size:18px;line-height:1.6;color:#4a4136;
-    max-width:440px;
-  }
-  .hero-cta{
-    margin-top:36px;display:flex;gap:16px;align-items:center;
-  }
-  .btn-primary{
-    background:var(--terracotta);color:var(--white);
-    padding:16px 32px;border-radius:999px;font-weight:700;font-size:15px;
-    box-shadow:0 8px 24px rgba(212,101,47,0.25);
-  }
-  .btn-secondary{
-    font-weight:700;font-size:15px;color:var(--espresso);
-    border-bottom:2px solid var(--espresso);padding-bottom:4px;
-  }
-  .hero-right{
-    position:relative;
-    background:linear-gradient(160deg,var(--citrus) 0%, var(--terracotta) 100%);
-    clip-path:polygon(18% 0, 100% 0, 100% 100%, 0% 100%);
-  }
-  .hero-right img{
-    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-    mix-blend-mode:luminosity;opacity:0.35;
-  }
-  .badge-years{
-    position:absolute;bottom:60px;left:42%;
-    background:var(--espresso);color:var(--cream);
-    border-radius:50%;width:160px;height:160px;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;box-shadow:0 16px 40px rgba(0,0,0,0.25);
-  }
-  .badge-years .num{font-family:Arial,Helvetica,sans-serif;font-weight:800;font-size:38px;}
-  .badge-years .lbl{font-size:11px;letter-spacing:0.05em;max-width:90px;margin-top:4px;}
-
-  /* ---------- DIFERENCIAIS ---------- */
-  .diff{
-    padding:100px 6%;
-    background:var(--cream);
-  }
-  .diff-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px;gap:24px;flex-wrap:wrap;}
-  .diff-head h2{font-size:clamp(28px,4vw,42px);max-width:520px;}
-  .diff-head p{max-width:340px;color:#6b6155;font-size:15px;line-height:1.6;}
-  .diff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
-  .diff-card{
-    background:var(--white);border-radius:20px;padding:32px 26px;
-    border:1px solid rgba(43,33,24,0.08);
-  }
-  .diff-card .ico{
-    width:48px;height:48px;border-radius:50%;
-    background:var(--peach);color:var(--terracotta);
-    display:flex;align-items:center;justify-content:center;
-    font-family:Arial,Helvetica,sans-serif;font-weight:800;font-size:18px;margin-bottom:18px;
-  }
-  .diff-card h3{font-size:16px;text-transform:none;letter-spacing:0;margin-bottom:8px;}
-  .diff-card p{font-size:14px;color:#6b6155;line-height:1.5;}
-
-  /* ---------- PORTFOLIO ---------- */
-  .portfolio{padding:100px 6%;background:var(--espresso);color:var(--cream);}
-  .portfolio-head{margin-bottom:56px;}
-  .portfolio-head .eyebrow{color:var(--citrus);}
-  .portfolio-head h2{font-size:clamp(28px,4vw,42px);max-width:560px;color:var(--cream);}
-  .port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-  .port-card{
-    background:rgba(255,255,255,0.04);border-radius:18px;overflow:hidden;
-    border:1px solid rgba(255,255,255,0.08);
-    transition:transform .3s;
-  }
-  .port-card.tall{grid-row:span 2;}
-  .port-card img{width:100%;height:220px;object-fit:cover;}
-  .port-card.tall img{height:460px;}
-  .port-info{padding:20px 22px;}
-  .port-info .tag{font-size:11px;color:var(--citrus);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;}
-  .port-info h3{font-size:18px;margin-top:8px;text-transform:none;letter-spacing:0;}
-
-  /* ---------- SOBRE ---------- */
-  .sobre{
-    padding:110px 6%;
-    background:var(--white);
-    display:grid;grid-template-columns:0.9fr 1.1fr;gap:60px;align-items:center;
-  }
-  .sobre-img{position:relative;}
-  .sobre-img img{border-radius:24px;width:100%;height:520px;object-fit:cover;}
-  .sobre-img .ring{
-    position:absolute;top:-30px;right:-30px;
-    width:140px;height:140px;border-radius:50%;
-    border:14px solid var(--citrus);
-  }
-  .sobre-text .eyebrow{color:var(--terracotta);}
-  .sobre-text h2{font-size:clamp(26px,3.6vw,40px);margin-bottom:20px;color:var(--espresso);}
-  .sobre-text p{font-size:16px;line-height:1.7;color:#4a4136;max-width:520px;margin-bottom:16px;}
-  .stats{display:flex;gap:48px;margin-top:32px;}
-  .stats div .n{font-family:Arial,Helvetica,sans-serif;font-weight:800;font-size:32px;color:var(--terracotta);}
-  .stats div .l{font-size:13px;color:#6b6155;}
-
-  /* ---------- CONTATO ---------- */
-  .contato{
-    background:linear-gradient(135deg,var(--terracotta), var(--citrus));
-    padding:120px 6%;text-align:center;color:var(--espresso);
-    position:relative;
-  }
-  .contato h2{font-size:clamp(32px,5vw,58px);color:var(--white);}
-  .contato p{margin-top:18px;font-size:17px;color:rgba(255,255,255,0.9);max-width:480px;margin-inline:auto;}
-  .contato .btn-primary{
-    margin-top:36px;background:var(--espresso);display:inline-block;
-  }
-
-  footer{
-    background:var(--espresso);color:rgba(251,246,238,0.6);
-    padding:40px 6%;display:flex;justify-content:space-between;font-size:13px;
-    flex-wrap:wrap;gap:12px;
-  }
-  footer a{color:rgba(251,246,238,0.85);font-weight:600;}
-
-  @media(max-width:900px){
-    .hero{grid-template-columns:1fr;}
-    .hero-right{display:none;}
-    .hero-left{padding:140px 6% 60px;}
-    .diff-grid{grid-template-columns:repeat(2,1fr);}
-    .port-grid{grid-template-columns:1fr;}
-    .port-card.tall{grid-row:auto;}
-    .sobre{grid-template-columns:1fr;}
-    nav{display:none;}
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Limão Cravo — Design, Marketing e Tecnologia</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <div class="logo"><img src="limao-cravo-logo.png" alt="Limão Cravo Estúdio Criativo"></div>
+<!-- ── HEADER ── -->
+<header id="header">
+  <div class="logo"><img src="limao-cravo-logo-1.png" alt="Limão Cravo"></div>
   <nav>
-    <a href="#" data-pt="estúdio" data-en="studio">estúdio</a>
-    <a href="#" data-pt="projetos" data-en="projects">projetos</a>
-    <a href="#" data-pt="serviços" data-en="services">serviços</a>
-    <a href="#" data-pt="contato" data-en="contact">contato</a>
+    <a href="#cases"    data-pt="Cases"     data-en="Cases">Cases</a>
+    <a href="#services" data-pt="Serviços"  data-en="Services">Serviços</a>
+    <a href="#processo" data-pt="Processo"  data-en="Process">Processo</a>
+    <a href="#quem"     data-pt="Sobre nós" data-en="About us">Sobre nós</a>
+    <a href="#blog"     data-pt="Blog"      data-en="Blog">Blog</a>
   </nav>
   <div class="header-right">
     <div class="lang-toggle">
       <button id="btn-pt" class="active" onclick="setLang('pt')">PT</button>
       <button id="btn-en" onclick="setLang('en')">EN</button>
     </div>
-    <a class="btn-fale" href="#" data-pt="fale com a gente" data-en="get in touch">fale com a gente</a>
+    <a class="btn-cta-header" href="#cta"
+       data-pt="Solicitar Orçamento"
+       data-en="Request a Quote">Solicitar Orçamento</a>
   </div>
 </header>
 
+<!-- ── HERO ── -->
 <section class="hero">
-  <div class="hero-left">
-    <div class="eyebrow" data-pt="Estúdio criativo · Ribeirão Preto" data-en="Creative studio · Ribeirão Preto">Estúdio criativo · Ribeirão Preto</div>
-    <h1 data-pt="Marcas com<br>identidade<br><span>desde 2010</span>" data-en="Brands with<br>identity<br><span>since 2010</span>">Marcas com<br>identidade<br><span>desde 2010</span></h1>
-    <p class="hero-sub" data-pt="Criamos design, branding e comunicação visual para empresas que querem ser reconhecidas — não apenas vistas. Mais de 14 anos construindo soluções criativas em Ribeirão Preto e para clientes em todo o Brasil." data-en="We create design, branding and visual communication for companies that want to be recognized — not just seen. Over 14 years building creative solutions in Ribeirão Preto and for clients across Brazil.">Criamos design, branding e comunicação visual para empresas que querem ser reconhecidas — não apenas vistas. Mais de 14 anos construindo soluções criativas em Ribeirão Preto e para clientes em todo o Brasil.</p>
-    <div class="hero-cta">
-      <a class="btn-primary" href="#" data-pt="ver projetos" data-en="view projects">ver projetos</a>
-      <a class="btn-secondary" href="#" data-pt="vamos marcar um café →" data-en="let's grab a coffee →">vamos marcar um café →</a>
+  <div class="hero-text reveal">
+    <h1 data-pt="Estratégia,<br>criatividade e<br><em>tecnologia</em><br>para você crescer."
+        data-en="Strategy,<br>creativity and<br><em>technology</em><br>to grow your business.">
+      Estratégia,<br>criatividade e<br><em>tecnologia</em><br>para sua empresa crescer.
+    </h1>
+    <p class="hero-sub"
+       data-pt="Transformamos negócios em marcas fortes, experiências digitais memoráveis e resultados mensuráveis."
+       data-en="We transform businesses into strong brands, memorable digital experiences and measurable results.">
+      Transformamos negócios em marcas fortes, experiências digitais memoráveis e resultados mensuráveis.
+    </p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#cases"
+         data-pt="Ver nossos cases" data-en="See our cases">Ver nossos cases</a>
+      <a class="btn-ghost" href="#cta"
+         data-pt="Falar com um especialista →" data-en="Talk to a specialist →">Falar com um especialista →</a>
     </div>
   </div>
-  <div class="hero-right">
-    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200" alt="">
-    <div class="badge-years">
-      <div class="num">14+</div>
-      <div class="lbl" data-pt="anos criando marcas" data-en="years building brands">anos criando marcas</div>
+
+  <div class="hero-pillars reveal">
+    <div class="pillar-card pc-design">
+      <div class="pillar-card-head">
+        <div class="pillar-icon pi-design">🎨</div>
+        <strong data-pt="Design" data-en="Design">Design</strong>
+      </div>
+      <div class="pillar-tags">
+        <span class="ptag" data-pt="Branding" data-en="Branding">Branding</span>
+        <span class="ptag" data-pt="Design Gráfico" data-en="Graphic Design">Design Gráfico</span>
+        <span class="ptag" data-pt="Audiovisual" data-en="Audiovisual">Audiovisual</span>
+        <span class="ptag" data-pt="Ilustração" data-en="Illustration">Ilustração</span>
+      </div>
+    </div>
+    <div class="pillar-card pc-mkt">
+      <div class="pillar-card-head">
+        <div class="pillar-icon pi-mkt">📈</div>
+        <strong data-pt="Marketing" data-en="Marketing">Marketing</strong>
+      </div>
+      <div class="pillar-tags">
+        <span class="ptag" data-pt="Social Media" data-en="Social Media">Social Media</span>
+        <span class="ptag" data-pt="Tráfego Pago" data-en="Paid Traffic">Tráfego Pago</span>
+        <span class="ptag" data-pt="Inbound Marketing" data-en="Inbound Marketing">Inbound Marketing</span>
+        <span class="ptag" data-pt="SEO" data-en="SEO">SEO</span>
+      </div>
+    </div>
+    <div class="pillar-card pc-tech">
+      <div class="pillar-card-head">
+        <div class="pillar-icon pi-tech">💻</div>
+        <strong data-pt="Tecnologia" data-en="Technology">Tecnologia</strong>
+      </div>
+      <div class="pillar-tags">
+        <span class="ptag" data-pt="UX/UI" data-en="UX/UI">UX/UI</span>
+        <span class="ptag" data-pt="Sites" data-en="Websites">Sites</span>
+        <span class="ptag" data-pt="Landing Pages" data-en="Landing Pages">Landing Pages</span>
+        <span class="ptag" data-pt="E-commerce" data-en="E-commerce">E-commerce</span>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="diff">
-  <div class="diff-head">
-    <h2 data-pt="Por que marcas confiam<br>na Limão Cravo" data-en="Why brands trust<br>Limão Cravo">Por que marcas confiam<br>na Limão Cravo</h2>
-    <p data-pt="Não vendemos só peças bonitas — entregamos clareza estratégica por trás de cada escolha visual." data-en="We don't just sell pretty pieces — we deliver strategic clarity behind every visual choice.">Não vendemos só peças bonitas — entregamos clareza estratégica por trás de cada escolha visual.</p>
+<!-- ── NÚMEROS ── -->
+<section class="numbers">
+  <div class="num-card reveal">
+    <div class="big">16+</div>
+    <div class="lbl" data-pt="anos de mercado" data-en="years in business">anos de mercado</div>
   </div>
-  <div class="diff-grid">
-    <div class="diff-card">
-      <div class="ico">01</div>
-      <h3 data-pt="Identidade visual" data-en="Visual identity">Identidade visual</h3>
-      <p data-pt="Marcas com personalidade própria, do conceito ao manual de aplicação." data-en="Brands with their own personality, from concept to brand guidelines.">Marcas com personalidade própria, do conceito ao manual de aplicação.</p>
+  <div class="num-card reveal">
+    <div class="big">200+</div>
+    <div class="lbl" data-pt="marcas atendidas" data-en="brands served">marcas atendidas</div>
+  </div>
+  <div class="num-card reveal">
+    <div class="big">6000+</div>
+    <div class="lbl" data-pt="projetos entregues" data-en="projects delivered">projetos entregues</div>
+  </div>
+  <div class="num-card reveal">
+    <div class="big">5.0</div>
+    <div class="lbl" data-pt="avaliação média" data-en="average rating">avaliação média</div>
+  </div>
+</section>
+
+<!-- ── CASES ── -->
+<section class="cases" id="cases">
+  <div class="sec-header reveal">
+    <div>
+      <div class="sec-label" data-pt="Resultados reais" data-en="Real results">Resultados reais</div>
+      <h2 class="sec-title" data-pt="Nossos Cases" data-en="Our Cases">Nossos Cases</h2>
     </div>
-    <div class="diff-card">
-      <div class="ico">02</div>
-      <h3 data-pt="Comunicação visual" data-en="Visual communication">Comunicação visual</h3>
-      <p data-pt="Sinalização, ambientação, redes sociais e site — consistência em cada ponto de contato." data-en="Signage, environments, social media and website — consistency across every touchpoint.">Sinalização, ambientação, redes sociais e site — consistência em cada ponto de contato.</p>
+    <a class="sec-link" href="#" data-pt="Ver todos os cases →" data-en="See all cases →">Ver todos os cases →</a>
+  </div>
+
+  <div class="case-tabs reveal">
+    <button class="case-tab active-all"    onclick="filterCases('all')"    data-pt="Todos"     data-en="All">Todos</button>
+    <button class="case-tab"               onclick="filterCases('design')" data-pt="Design"    data-en="Design">Design</button>
+    <button class="case-tab"               onclick="filterCases('mkt')"    data-pt="Marketing" data-en="Marketing">Marketing</button>
+    <button class="case-tab"               onclick="filterCases('tech')"   data-pt="Tecnologia" data-en="Technology">Tecnologia</button>
+  </div>
+
+  <div class="cases-grid">
+    <div class="case-card show" data-cat="design">
+      <div class="case-img">
+        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800" alt="">
+        <span class="case-badge badge-design" data-pt="Design · Branding" data-en="Design · Branding">Design · Branding</span>
+      </div>
+      <div class="case-info">
+        <h3>Case 01</h3>
+        <p data-pt="Identidade visual completa, manual de marca e materiais gráficos." data-en="Full visual identity, brand manual and print materials.">Identidade visual completa, manual de marca e materiais gráficos.</p>
+      </div>
     </div>
-    <div class="diff-card">
-      <div class="ico">03</div>
-      <h3 data-pt="Consultoria criativa" data-en="Creative consulting">Consultoria criativa</h3>
-      <p data-pt="Organizamos a comunicação da sua marca com estratégia clara e sistemas visuais." data-en="We organize your brand's communication with clear strategy and visual systems.">Organizamos a comunicação da sua marca com estratégia clara e sistemas visuais.</p>
+    <div class="case-card show" data-cat="mkt">
+      <div class="case-img">
+        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800" alt="">
+        <span class="case-badge badge-mkt" data-pt="Marketing · Social Media" data-en="Marketing · Social Media">Marketing · Social Media</span>
+      </div>
+      <div class="case-info">
+        <h3>Case 02</h3>
+        <p data-pt="Estratégia de social media, tráfego pago e produção de conteúdo." data-en="Social media strategy, paid traffic and content production.">Estratégia de social media, tráfego pago e produção de conteúdo.</p>
+      </div>
     </div>
-    <div class="diff-card">
-      <div class="ico">04</div>
-      <h3 data-pt="Processo colaborativo" data-en="Collaborative process">Processo colaborativo</h3>
-      <p data-pt="Planejamos a estratégia junto com você, escutando o negócio antes de propor qualquer peça." data-en="We plan the strategy together with you, listening to the business before proposing anything.">Planejamos a estratégia junto com você, escutando o negócio antes de propor qualquer peça.</p>
+    <div class="case-card show" data-cat="tech">
+      <div class="case-img">
+        <img src="https://images.unsplash.com/photo-1593720213428-28a5b9e94613?q=80&w=800" alt="">
+        <span class="case-badge badge-tech" data-pt="Tecnologia · E-commerce" data-en="Technology · E-commerce">Tecnologia · E-commerce</span>
+      </div>
+      <div class="case-info">
+        <h3>Case 03</h3>
+        <p data-pt="Desenvolvimento de e-commerce com UX/UI e integração de pagamentos." data-en="E-commerce development with UX/UI and payment integration.">Desenvolvimento de e-commerce com UX/UI e integração de pagamentos.</p>
+      </div>
+    </div>
+    <div class="case-card show" data-cat="tech">
+      <div class="case-img">
+        <img src="https://images.unsplash.com/photo-1542435503-956c469947f6?q=80&w=800" alt="">
+        <span class="case-badge badge-tech" data-pt="Tecnologia · Site" data-en="Technology · Website">Tecnologia · Site</span>
+      </div>
+      <div class="case-info">
+        <h3>Case 04</h3>
+        <p data-pt="Site institucional responsivo com CMS e otimização de SEO." data-en="Responsive institutional website with CMS and SEO optimization.">Site institucional responsivo com CMS e otimização de SEO.</p>
+      </div>
+    </div>
+    <div class="case-card show" data-cat="design">
+      <div class="case-img">
+        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800" alt="">
+        <span class="case-badge badge-design" data-pt="Design · Embalagem" data-en="Design · Packaging">Design · Embalagem</span>
+      </div>
+      <div class="case-info">
+        <h3>Case 05</h3>
+        <p data-pt="Naming, embalagem e linha gráfica completa para produto." data-en="Naming, packaging and complete graphic line for product.">Naming, embalagem e linha gráfica completa para produto.</p>
+      </div>
+    </div>
+    <div class="case-card show" data-cat="mkt">
+      <div class="case-img">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800" alt="">
+        <span class="case-badge badge-mkt" data-pt="Marketing · Performance" data-en="Marketing · Performance">Marketing · Performance</span>
+      </div>
+      <div class="case-info">
+        <h3>Case 06</h3>
+        <p data-pt="Inbound marketing, SEO e campanhas de performance digital." data-en="Inbound marketing, SEO and digital performance campaigns.">Inbound marketing, SEO e campanhas de performance digital.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="portfolio">
-  <div class="portfolio-head">
-    <div class="eyebrow" data-pt="projetos selecionados" data-en="selected projects">projetos selecionados</div>
-    <h2 data-pt="Trabalho que fala<br>por si" data-en="Work that speaks<br>for itself">Trabalho que fala<br>por si</h2>
-  </div>
-  <div class="port-grid">
-    <div class="port-card tall">
-      <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=900" alt="">
-      <div class="port-info"><div class="tag" data-pt="Branding · Café Nômade" data-en="Branding · Café Nômade">Branding · Café Nômade</div><h3 data-pt="Identidade visual completa" data-en="Full visual identity">Identidade visual completa</h3></div>
+<!-- ── SERVIÇOS ── -->
+<section class="services" id="services">
+  <div class="sec-label reveal" data-pt="O que entregamos" data-en="What we deliver">O que entregamos</div>
+  <h2 class="sec-title reveal" data-pt="Três pilares,<br>uma solução integrada" data-en="Three pillars,<br>one integrated solution">Três pilares,<br>uma solução integrada</h2>
+
+  <div class="services-grid">
+    <div class="serv-pillar sp-design reveal">
+      <div class="sp-icon">🎨</div>
+      <div class="sp-name" data-pt="Design" data-en="Design">Design</div>
+      <p class="sp-desc" data-pt="Criamos marcas com personalidade própria — do conceito ao manual de aplicação, prontas para funcionar em qualquer ponto de contato." data-en="We create brands with their own personality — from concept to brand guidelines, ready for any touchpoint.">Criamos marcas com personalidade própria — do conceito ao manual de aplicação, prontas para funcionar em qualquer ponto de contato.</p>
+      <ul class="sp-list">
+        <li data-pt="Branding e Identidade Visual" data-en="Branding and Visual Identity">Branding e Identidade Visual</li>
+        <li data-pt="Design Gráfico e Editorial" data-en="Graphic and Editorial Design">Design Gráfico e Editorial</li>
+        <li data-pt="Audiovisual e Motion" data-en="Audiovisual and Motion">Audiovisual e Motion</li>
+        <li data-pt="Ilustração e Embalagem" data-en="Illustration and Packaging">Ilustração e Embalagem</li>
+      </ul>
     </div>
-    <div class="port-card">
-      <img src="https://images.unsplash.com/photo-1542435503-956c469947f6?q=80&w=900" alt="">
-      <div class="port-info"><div class="tag" data-pt="Site · Estúdio Vera" data-en="Website · Estúdio Vera">Site · Estúdio Vera</div><h3 data-pt="Site institucional" data-en="Institutional website">Site institucional</h3></div>
+
+    <div class="serv-pillar sp-mkt reveal">
+      <div class="sp-icon">📈</div>
+      <div class="sp-name" data-pt="Marketing" data-en="Marketing">Marketing</div>
+      <p class="sp-desc" data-pt="Planejamos e executamos estratégias para atrair, engajar e converter — levando sua marca a mais pessoas, com resultado mensurável." data-en="We plan and execute strategies to attract, engage and convert — taking your brand to more people, with measurable results.">Planejamos e executamos estratégias para atrair, engajar e converter — levando sua marca a mais pessoas, com resultado mensurável.</p>
+      <ul class="sp-list">
+        <li data-pt="Social Media e Conteúdo" data-en="Social Media and Content">Social Media e Conteúdo</li>
+        <li data-pt="Tráfego Pago (Google e Meta Ads)" data-en="Paid Traffic (Google and Meta Ads)">Tráfego Pago (Google e Meta Ads)</li>
+        <li data-pt="Inbound Marketing" data-en="Inbound Marketing">Inbound Marketing</li>
+        <li data-pt="SEO e Performance" data-en="SEO and Performance">SEO e Performance</li>
+      </ul>
     </div>
-    <div class="port-card">
-      <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=900" alt="">
-      <div class="port-info"><div class="tag" data-pt="Embalagem · Doce Raiz" data-en="Packaging · Doce Raiz">Embalagem · Doce Raiz</div><h3 data-pt="Naming + packaging" data-en="Naming + packaging">Naming + packaging</h3></div>
+
+    <div class="serv-pillar sp-tech reveal">
+      <div class="sp-icon">💻</div>
+      <div class="sp-name" data-pt="Tecnologia" data-en="Technology">Tecnologia</div>
+      <p class="sp-desc" data-pt="Desenvolvemos presença digital com experiência de usuário estratégica — sites, plataformas e e-commerces que convertem e escalam." data-en="We develop digital presence with strategic user experience — websites, platforms and e-commerces that convert and scale.">Desenvolvemos presença digital com experiência de usuário estratégica — sites, plataformas e e-commerces que convertem e escalam.</p>
+      <ul class="sp-list">
+        <li data-pt="UX/UI Design" data-en="UX/UI Design">UX/UI Design</li>
+        <li data-pt="Sites Institucionais e Landing Pages" data-en="Institutional Websites and Landing Pages">Sites Institucionais e Landing Pages</li>
+        <li data-pt="E-commerce" data-en="E-commerce">E-commerce</li>
+        <li data-pt="Sistemas de baixa e média complexidade" data-en="Low and medium complexity systems">Sistemas de baixa e média complexidade</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<section class="sobre">
-  <div class="sobre-img">
+<!-- ── PROCESSO ── -->
+<section class="processo" id="processo">
+  <div class="sec-label reveal" data-pt="Como trabalhamos" data-en="How we work">Como trabalhamos</div>
+  <h2 class="sec-title reveal" data-pt="Do diagnóstico ao resultado" data-en="From diagnosis to results">Do diagnóstico ao resultado</h2>
+
+  <div class="processo-steps">
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <h3 data-pt="Diagnóstico" data-en="Diagnosis">Diagnóstico</h3>
+      <p data-pt="Entendemos o negócio, os desafios e os objetivos antes de propor qualquer solução." data-en="We understand the business, challenges and goals before proposing any solution.">Entendemos o negócio, os desafios e os objetivos antes de propor qualquer solução.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">02</div>
+      <h3 data-pt="Estratégia" data-en="Strategy">Estratégia</h3>
+      <p data-pt="Planejamos as ações com foco em resultado — não apenas em entregas." data-en="We plan actions focused on results — not just deliverables.">Planejamos as ações com foco em resultado — não apenas em entregas.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">03</div>
+      <h3 data-pt="Criação" data-en="Creation">Criação</h3>
+      <p data-pt="Desenvolvemos visual, conteúdo e tecnologia com coerência e qualidade." data-en="We develop visual, content and technology with consistency and quality.">Desenvolvemos visual, conteúdo e tecnologia com coerência e qualidade.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">04</div>
+      <h3 data-pt="Implementação" data-en="Implementation">Implementação</h3>
+      <p data-pt="Executamos as soluções com agilidade e atenção ao detalhe." data-en="We execute solutions with speed and attention to detail.">Executamos as soluções com agilidade e atenção ao detalhe.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">05</div>
+      <h3 data-pt="Resultados" data-en="Results">Resultados</h3>
+      <p data-pt="Mensuramos, otimizamos e evoluímos continuamente." data-en="We measure, optimize and continuously evolve.">Mensuramos, otimizamos e evoluímos continuamente.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUEM SOMOS ── -->
+<section class="quem" id="quem">
+  <div class="quem-img reveal">
     <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=900" alt="">
-    <div class="ring"></div>
+    <div class="quem-ring"></div>
+    <div class="quem-badge">
+      <div class="qb-num">2010</div>
+      <div class="qb-lbl" data-pt="Ano de fundação" data-en="Founded in">Ano de fundação</div>
+    </div>
   </div>
-  <div class="sobre-text">
-    <div class="eyebrow" data-pt="quem somos" data-en="who we are">quem somos</div>
-    <h2 data-pt="Nascemos em 2010,<br>em Ribeirão Preto" data-en="Founded in 2010,<br>in Ribeirão Preto">Nascemos em 2010,<br>em Ribeirão Preto</h2>
-    <p data-pt="Com um objetivo direto: resolver problemas reais de comunicação com soluções criativas que duram." data-en="With one clear goal: solving real communication problems with creative solutions that last.">Com um objetivo direto: resolver problemas reais de comunicação com soluções criativas que duram.</p>
-    <p data-pt="Trabalhamos lado a lado com cada cliente — entendendo o negócio, os desafios e os objetivos antes de propor qualquer peça." data-en="We work side by side with each client — understanding the business, challenges and goals before proposing anything.">Trabalhamos lado a lado com cada cliente — entendendo o negócio, os desafios e os objetivos antes de propor qualquer peça.</p>
-    <div class="stats">
-      <div><div class="n">80+</div><div class="l" data-pt="marcas atendidas" data-en="brands served">marcas atendidas</div></div>
-      <div><div class="n">14</div><div class="l" data-pt="anos de estúdio" data-en="years of studio">anos de estúdio</div></div>
-      <div><div class="n">4.9</div><div class="l" data-pt="avaliação média" data-en="average rating">avaliação média</div></div>
+
+  <div class="quem-text reveal">
+    <div class="sec-label" data-pt="Nossa história" data-en="Our story">Nossa história</div>
+    <h2 data-pt="Nascemos em Ribeirão Preto<br>para resolver o que importa" data-en="Born in Ribeirão Preto<br>to solve what matters">Nascemos em Ribeirão Preto<br>para resolver o que importa</h2>
+    <p data-pt="A Limão Cravo surgiu em 2010 com um objetivo direto: resolver problemas reais de comunicação com soluções criativas que duram. Mais de 16 anos depois, somos uma agência integrada de Design, Marketing e Tecnologia." data-en="Limão Cravo was founded in 2010 with one clear goal: solving real communication problems with creative solutions that last. Over 16 years later, we are an integrated agency of Design, Marketing and Technology.">A Limão Cravo surgiu em 2010 com um objetivo direto: resolver problemas reais de comunicação com soluções criativas que duram. Mais de 16 anos depois, somos uma agência integrada de Design, Marketing e Tecnologia.</p>
+    <p data-pt="Trabalhamos lado a lado com cada cliente — entendendo o negócio antes de propor qualquer peça. Esse processo de escuta é o que sustenta projetos que seguem funcionando anos depois de entregues." data-en="We work side by side with each client — understanding the business before proposing anything. That listening process sustains projects that keep working years after delivery.">Trabalhamos lado a lado com cada cliente — entendendo o negócio antes de propor qualquer peça. Esse processo de escuta é o que sustenta projetos que seguem funcionando anos depois de entregues.</p>
+    <div class="quem-stats">
+      <div class="qs"><div class="n">200+</div><div class="l" data-pt="marcas atendidas" data-en="brands served">marcas atendidas</div></div>
+      <div class="qs"><div class="n">6000+</div><div class="l" data-pt="projetos entregues" data-en="projects delivered">projetos entregues</div></div>
+      <div class="qs"><div class="n">16</div><div class="l" data-pt="anos de mercado" data-en="years in business">anos de mercado</div></div>
     </div>
   </div>
 </section>
 
-<section class="contato">
-  <h2 data-pt="Quero uma marca<br>que funciona" data-en="I want a brand<br>that works">Quero uma marca<br>que funciona</h2>
-  <p data-pt="Conte pra gente seu desafio — a Limão Cravo cuida do conceito à entrega final." data-en="Tell us about your challenge — Limão Cravo takes care of everything from concept to final delivery.">Conte pra gente seu desafio — a Limão Cravo cuida do conceito à entrega final.</p>
-  <a class="btn-primary" href="#" data-pt="vamos marcar um café →" data-en="let's grab a coffee →">vamos marcar um café →</a>
+<!-- ── BLOG ── -->
+
+<section class="blog" id="blog">
+  <div class="sec-label">Conteúdo</div>
+  <h2>Ideias, estratégias e tendências</h2>
+  <p>
+    Insights sobre design, tecnologia e comunicação.
+  </p>
+  <div class="blog-grid" id="blog-grid">
+  </div>
 </section>
 
+<!-- ── CTA FINAL ── -->
+<section class="cta-final" id="cta">
+  <h2 data-pt="Vamos conversar sobre<br>o próximo passo da<br><em>sua marca?</em>"
+      data-en="Let's talk about the<br>next step for<br><em>your brand?</em>">
+    Vamos conversar sobre<br>o próximo passo da<br><em>sua marca?</em>
+  </h2>
+  <p data-pt="Conte pra gente seu desafio — a Limão Cravo cuida do diagnóstico à entrega final, unindo design, marketing e tecnologia."
+     data-en="Tell us your challenge — Limão Cravo handles everything from diagnosis to final delivery, combining design, marketing and technology.">
+    Conte pra gente seu desafio — a Limão Cravo cuida do diagnóstico à entrega final, unindo design, marketing e tecnologia.
+  </p>
+  <div class="cta-btns">
+    <a class="btn-cta-main" href="#"
+       data-pt="Solicitar Orçamento" data-en="Request a Quote">Solicitar Orçamento</a>
+    <a class="btn-cta-sec" href="#"
+       data-pt="Falar com um Especialista" data-en="Talk to a Specialist">Falar com um Especialista</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
 <footer>
-  <div>© Limão Cravo Estúdio Criativo</div>
-  <div><a href="#">WhatsApp</a> &nbsp; <a href="#">Instagram</a> &nbsp; <a href="#" data-pt="contato@limaocravo.net" data-en="contact@limaocravo.net">contato@limaocravo.net</a></div>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="limao-cravo-logo-1.png" alt="Limão Cravo">
+      <p data-pt="Agência integrada de Design, Marketing e Tecnologia. Desde 2010 em Ribeirão Preto."
+         data-en="Integrated agency of Design, Marketing and Technology. Since 2010 in Ribeirão Preto.">
+        Agência integrada de Design, Marketing e Tecnologia. Desde 2010 em Ribeirão Preto.
+      </p>
+      <div class="social-row">
+        <a class="social-btn" href="#">In</a>
+        <a class="social-btn" href="#">Fb</a>
+        <a class="social-btn" href="#">Yt</a>
+        <a class="social-btn" href="#">W</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4 data-pt="Serviços" data-en="Services">Serviços</h4>
+      <ul>
+        <li><a href="#" data-pt="Design e Branding" data-en="Design and Branding">Design e Branding</a></li>
+        <li><a href="#" data-pt="Marketing Digital" data-en="Digital Marketing">Marketing Digital</a></li>
+        <li><a href="#" data-pt="Desenvolvimento Web" data-en="Web Development">Desenvolvimento Web</a></li>
+        <li><a href="#" data-pt="E-commerce" data-en="E-commerce">E-commerce</a></li>
+        <li><a href="#" data-pt="SEO" data-en="SEO">SEO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4 data-pt="Links Úteis" data-en="Useful Links">Links Úteis</h4>
+      <ul>
+        <li><a href="#" data-pt="Cases" data-en="Cases">Cases</a></li>
+        <li><a href="#" data-pt="Blog" data-en="Blog">Blog</a></li>
+        <li><a href="#" data-pt="Quem somos" data-en="About us">Quem somos</a></li>
+        <li><a href="#" data-pt="Perguntas frequentes" data-en="FAQ">Perguntas frequentes</a></li>
+        <li><a href="#" data-pt="Política de privacidade" data-en="Privacy policy">Política de privacidade</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-contact">
+      <h4 data-pt="Contato" data-en="Contact">Contato</h4>
+      <p>
+        <strong data-pt="Endereço" data-en="Address">Endereço</strong>
+        <span data-pt="Ribeirão Preto — SP, Brasil" data-en="Ribeirão Preto — SP, Brazil">Ribeirão Preto — SP, Brasil</span>
+      </p>
+      <p>
+        <strong>E-mail</strong>
+        contato@limaocravo.net
+      </p>
+      <p>
+        <strong>WhatsApp</strong>
+        (16) 99999-9999
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2025 Limão Cravo — Design, Marketing e Tecnologia</div>
+    <div class="cert-badges">
+      <span class="cert">Google Partner</span>
+      <span class="cert">Meta Business</span>
+      <span class="cert">Top Brand Strategy</span>
+    </div>
+  </div>
 </footer>
 
-<script>
-function setLang(lang){
-  document.querySelectorAll('[data-pt]').forEach(el=>{
-    el.innerHTML = el.getAttribute('data-'+lang);
-  });
-  document.getElementById('btn-pt').classList.toggle('active', lang==='pt');
-  document.getElementById('btn-en').classList.toggle('active', lang==='en');
-  document.documentElement.lang = (lang==='pt') ? 'pt-BR' : 'en';
-}
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
