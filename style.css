@@ -928,6 +928,7 @@ footer {
 
       .hero h1 { font-size:32px; }
       .cases-grid { grid-template-columns:1fr; }
+      .case-card:nth-child(n+4) { display:none; }
       .blog-grid { grid-template-columns:1fr; }
       .footer-grid { grid-template-columns:1fr; }
       .processo { display:none; }
