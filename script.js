@@ -233,3 +233,49 @@ document.addEventListener("DOMContentLoaded", carregarBlog);
     console.log('[heroRotor] fita montada com', track.children.length, 'palavras. Largura da caixa:', box.style.width);
 
 })();
+
+/* ── Menu mobile (hambúrguer + acordeão de Serviços) ── */
+(function mobileNav() {
+    const header = document.getElementById('header');
+    const toggle = document.getElementById('navToggle');
+    if (!header || !toggle) return;
+
+    toggle.addEventListener('click', () => {
+        const isOpen = header.classList.toggle('nav-open');
+        toggle.classList.toggle('active', isOpen);
+        toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    const navDropdown = header.querySelector('.nav-dropdown');
+    if (!navDropdown) return;
+    const trigger = navDropdown.querySelector(':scope > a');
+    trigger.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            navDropdown.classList.toggle('dropdown-open');
+        }
+    });
+})();
+
+/* ── WhatsApp ("Falar com um Especialista") ──
+   Número centralizado aqui: quando o número real da Limão Cravo estiver
+   disponível, basta trocar WHATSAPP_NUMBER — todos os links do site
+   (marcados com o atributo data-whatsapp) são atualizados automaticamente. */
+const WHATSAPP_NUMBER = '5500000000000'; // TODO: substituir pelo número real da Limão Cravo
+const WHATSAPP_MESSAGE = 'Olá! Vim pelo site da Limão Cravo e gostaria de falar com um especialista.';
+
+document.querySelectorAll('[data-whatsapp]').forEach(el => {
+    el.setAttribute('href', `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`);
+    el.setAttribute('target', '_blank');
+    el.setAttribute('rel', 'noopener');
+});
+
+/* ── Formulário de orçamento (orcamento.html) ──
+   Ainda sem backend: só valida os campos obrigatórios no navegador e
+   não envia para lugar nenhum até um serviço de envio ser conectado. */
+const quoteForm = document.getElementById('quoteForm');
+if (quoteForm) {
+    quoteForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+    });
+}

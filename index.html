@@ -12,18 +12,47 @@
 <header id="header">
   <div class="logo"><img src="imagens/limao-cravo-logo-1.png" alt="Limão Cravo"></div>
   <nav>
-    <a href="#cases"    data-pt="Cases"     data-en="Cases">Cases</a>
-    <a href="#services" data-pt="Serviços"  data-en="Services">Serviços</a>
-    <a href="#processo" data-pt="Processo"  data-en="Process">Processo</a>
-    <a href="#quem"     data-pt="Sobre nós" data-en="About us">Sobre nós</a>
-    <a href="#blog"     data-pt="Blog"      data-en="Blog">Blog</a>
+    <div class="nav-dropdown">
+      <a href="#services" data-pt="Serviços" data-en="Services">Serviços</a>
+      <div class="dropdown-menu">
+        <div class="dropdown-panel">
+          <div class="dropdown-col">
+            <div class="dropdown-col-title" data-pt="Design" data-en="Design">Design</div>
+            <a href="servicos/branding.html" data-pt="Branding" data-en="Branding">Branding</a>
+            <a href="servicos/design-grafico.html" data-pt="Design Gráfico" data-en="Graphic Design">Design Gráfico</a>
+            <a href="servicos/ilustracao.html" data-pt="Ilustração" data-en="Illustration">Ilustração</a>
+            <a href="servicos/embalagens.html" data-pt="Embalagens" data-en="Packaging">Embalagens</a>
+            <a href="servicos/audiovisual-motion.html" data-pt="Audiovisual e Motion" data-en="Audiovisual and Motion">Audiovisual e Motion</a>
+          </div>
+          <div class="dropdown-col">
+            <div class="dropdown-col-title" data-pt="Marketing" data-en="Marketing">Marketing</div>
+            <a href="servicos/social-media.html" data-pt="Social Media" data-en="Social Media">Social Media</a>
+            <a href="servicos/trafego-pago.html" data-pt="Tráfego Pago" data-en="Paid Traffic">Tráfego Pago</a>
+            <a href="servicos/inbound-marketing.html" data-pt="Inbound Marketing" data-en="Inbound Marketing">Inbound Marketing</a>
+            <a href="servicos/seo-performance.html" data-pt="SEO e Performance" data-en="SEO and Performance">SEO e Performance</a>
+          </div>
+          <div class="dropdown-col">
+            <div class="dropdown-col-title" data-pt="Tecnologia" data-en="Technology">Tecnologia</div>
+            <a href="servicos/ux-ui.html" data-pt="UX/UI Design" data-en="UX/UI Design">UX/UI Design</a>
+            <a href="servicos/sites.html#institucional" data-pt="Sites Institucionais" data-en="Institutional Websites">Sites Institucionais</a>
+            <a href="servicos/sites.html#ecommerce" data-pt="E-commerce" data-en="E-commerce">E-commerce</a>
+            <a href="servicos/sistemas.html" data-pt="Sistemas" data-en="Systems">Sistemas</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="sobre-nos.html" data-pt="Sobre nós" data-en="About us">Sobre nós</a>
+    <a href="https://limaocravo.blog/" target="_blank" rel="noopener" data-pt="Blog" data-en="Blog">Blog</a>
   </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
   <div class="header-right">
     <div class="lang-toggle">
       <button id="btn-pt" class="active" onclick="setLang('pt')">PT</button>
       <button id="btn-en" onclick="setLang('en')">EN</button>
     </div>
-    <a class="btn-cta-header" href="#cta"
+    <a class="btn-cta-header" href="orcamento.html"
        data-pt="Solicitar Orçamento"
        data-en="Request a Quote">Solicitar Orçamento</a>
   </div>
@@ -50,77 +79,42 @@
     <div class="hero-btns">
       <a class="btn-primary" href="#cases"
          data-pt="Ver nossos cases" data-en="See our cases">Ver nossos cases</a>
-      <a class="btn-ghost" href="#cta"
+      <a class="btn-ghost" href="#" data-whatsapp
          data-pt="Falar com um especialista →" data-en="Talk to a specialist →">Falar com um especialista →</a>
     </div>
-  </div>
-
-  <div class="hero-pillars reveal">
-    <div class="pillar-card pc-design">
-      <div class="pillar-card-head">
-        <div class="pillar-icon pi-design">
-          <img src="imagens/design.svg" alt="Design">
+    <div class="hero-stats reveal">
+      <div class="hero-stat">
+        <div class="hero-stat-icon">📈</div>
+        <div class="hero-stat-text">
+          <div class="hero-stat-num">16+</div>
+          <div class="hero-stat-lbl" data-pt="anos de mercado" data-en="years in business">anos de mercado</div>
         </div>
-        <strong data-pt="Design" data-en="Design">Design</strong>
       </div>
-      <div class="pillar-tags">
-        <span class="ptag" data-pt="Branding" data-en="Branding">Branding</span>
-        <span class="ptag" data-pt="Design Gráfico" data-en="Graphic Design">Design Gráfico</span>
-        <span class="ptag" data-pt="Audiovisual" data-en="Audiovisual">Audiovisual</span>
-        <span class="ptag" data-pt="Ilustração" data-en="Illustration">Ilustração</span>
-      </div>
-    </div>
-    <div class="pillar-card pc-mkt">
-      <div class="pillar-card-head">
-        <div class="pillar-icon pi-mkt">
-          <img src="imagens/marketing.svg" alt="Marketing">
+      <div class="hero-stat">
+        <div class="hero-stat-icon">🏢</div>
+        <div class="hero-stat-text">
+          <div class="hero-stat-num">200+</div>
+          <div class="hero-stat-lbl" data-pt="marcas atendidas" data-en="brands served">marcas atendidas</div>
         </div>
-        <strong data-pt="Marketing" data-en="Marketing">Marketing</strong>
       </div>
-      <div class="pillar-tags">
-        <span class="ptag" data-pt="Social Media" data-en="Social Media">Social Media</span>
-        <span class="ptag" data-pt="Tráfego Pago" data-en="Paid Traffic">Tráfego Pago</span>
-        <span class="ptag" data-pt="Inbound Marketing" data-en="Inbound Marketing">Inbound Marketing</span>
-        <span class="ptag" data-pt="SEO" data-en="SEO">SEO</span>
-      </div>
-    </div>
-    <div class="pillar-card pc-tech">
-      <div class="pillar-card-head">
-        <div class="pillar-icon pi-tech">
-          <img src="imagens/tecnologia.svg" alt="Tecnologia">
+      <div class="hero-stat">
+        <div class="hero-stat-icon">💼</div>
+        <div class="hero-stat-text">
+          <div class="hero-stat-num">6000+</div>
+          <div class="hero-stat-lbl" data-pt="projetos entregues" data-en="projects delivered">projetos entregues</div>
         </div>
-        <strong data-pt="Tecnologia" data-en="Technology">Tecnologia</strong>
       </div>
-      <div class="pillar-tags">
-        <span class="ptag" data-pt="UX/UI" data-en="UX/UI">UX/UI</span>
-        <span class="ptag" data-pt="Sites" data-en="Websites">Sites</span>
-        <span class="ptag" data-pt="Landing Pages" data-en="Landing Pages">Landing Pages</span>
-        <span class="ptag" data-pt="E-commerce" data-en="E-commerce">E-commerce</span>
+      <div class="hero-stat">
+        <div class="hero-stat-icon">⭐</div>
+        <div class="hero-stat-text">
+          <div class="hero-stat-num">5.0</div>
+          <div class="hero-stat-lbl" data-pt="avaliação média" data-en="average rating">avaliação média</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 </div>
-
-<!-- ── NÚMEROS ── -->
-<section class="numbers">
-  <div class="num-card reveal">
-    <div class="big">16+</div>
-    <div class="lbl" data-pt="anos de mercado" data-en="years in business">anos de mercado</div>
-  </div>
-  <div class="num-card reveal">
-    <div class="big">200+</div>
-    <div class="lbl" data-pt="marcas atendidas" data-en="brands served">marcas atendidas</div>
-  </div>
-  <div class="num-card reveal">
-    <div class="big">6000+</div>
-    <div class="lbl" data-pt="projetos entregues" data-en="projects delivered">projetos entregues</div>
-  </div>
-  <div class="num-card reveal">
-    <div class="big">5.0</div>
-    <div class="lbl" data-pt="avaliação média" data-en="average rating">avaliação média</div>
-  </div>
-</section>
 
 <!-- ── CASES ── -->
 <section class="cases" id="cases">
@@ -219,10 +213,11 @@
       <div class="sp-name" data-pt="Design" data-en="Design">Design</div>
       <p class="sp-desc" data-pt="Criamos marcas com personalidade própria — do conceito ao manual de aplicação, prontas para funcionar em qualquer ponto de contato." data-en="We create brands with their own personality — from concept to brand guidelines, ready for any touchpoint.">Criamos marcas com personalidade própria — do conceito ao manual de aplicação, prontas para funcionar em qualquer ponto de contato.</p>
       <ul class="sp-list">
-        <li data-pt="Branding e Identidade Visual" data-en="Branding and Visual Identity">Branding e Identidade Visual</li>
-        <li data-pt="Design Gráfico e Editorial" data-en="Graphic and Editorial Design">Design Gráfico e Editorial</li>
+        <li><a href="servicos/branding.html" data-pt="Branding e Identidade Visual" data-en="Branding and Visual Identity">Branding e Identidade Visual</a></li>
+        <li><a href="servicos/design-grafico.html" data-pt="Design Gráfico e Editorial" data-en="Graphic and Editorial Design">Design Gráfico e Editorial</a></li>
         <li data-pt="Audiovisual e Motion" data-en="Audiovisual and Motion">Audiovisual e Motion</li>
-        <li data-pt="Ilustração e Embalagem" data-en="Illustration and Packaging">Ilustração e Embalagem</li>
+        <li><a href="servicos/ilustracao.html" data-pt="Ilustração" data-en="Illustration">Ilustração</a></li>
+        <li><a href="servicos/embalagens.html" data-pt="Embalagens" data-en="Packaging">Embalagens</a></li>
       </ul>
     </div>
 
@@ -231,10 +226,10 @@
       <div class="sp-name" data-pt="Marketing" data-en="Marketing">Marketing</div>
       <p class="sp-desc" data-pt="Planejamos e executamos estratégias para atrair, engajar e converter — levando sua marca a mais pessoas, com resultado mensurável." data-en="We plan and execute strategies to attract, engage and convert — taking your brand to more people, with measurable results.">Planejamos e executamos estratégias para atrair, engajar e converter — levando sua marca a mais pessoas, com resultado mensurável.</p>
       <ul class="sp-list">
-        <li data-pt="Social Media e Conteúdo" data-en="Social Media and Content">Social Media e Conteúdo</li>
-        <li data-pt="Tráfego Pago (Google e Meta Ads)" data-en="Paid Traffic (Google and Meta Ads)">Tráfego Pago (Google e Meta Ads)</li>
+        <li><a href="servicos/social-media.html" data-pt="Social Media e Conteúdo" data-en="Social Media and Content">Social Media e Conteúdo</a></li>
+        <li><a href="servicos/trafego-pago.html" data-pt="Tráfego Pago (Google e Meta Ads)" data-en="Paid Traffic (Google and Meta Ads)">Tráfego Pago (Google e Meta Ads)</a></li>
         <li data-pt="Inbound Marketing" data-en="Inbound Marketing">Inbound Marketing</li>
-        <li data-pt="SEO e Performance" data-en="SEO and Performance">SEO e Performance</li>
+        <li><a href="servicos/seo-performance.html" data-pt="SEO e Performance" data-en="SEO and Performance">SEO e Performance</a></li>
       </ul>
     </div>
 
@@ -244,8 +239,8 @@
       <p class="sp-desc" data-pt="Desenvolvemos presença digital com experiência de usuário estratégica — sites, plataformas e e-commerces que convertem e escalam." data-en="We develop digital presence with strategic user experience — websites, platforms and e-commerces that convert and scale.">Desenvolvemos presença digital com experiência de usuário estratégica — sites, plataformas e e-commerces que convertem e escalam.</p>
       <ul class="sp-list">
         <li data-pt="UX/UI Design" data-en="UX/UI Design">UX/UI Design</li>
-        <li data-pt="Sites Institucionais e Landing Pages" data-en="Institutional Websites and Landing Pages">Sites Institucionais e Landing Pages</li>
-        <li data-pt="E-commerce" data-en="E-commerce">E-commerce</li>
+        <li><a href="servicos/sites.html#institucional" data-pt="Sites Institucionais e Landing Pages" data-en="Institutional Websites and Landing Pages">Sites Institucionais e Landing Pages</a></li>
+        <li><a href="servicos/sites.html#ecommerce" data-pt="E-commerce" data-en="E-commerce">E-commerce</a></li>
         <li data-pt="Sistemas de baixa e média complexidade" data-en="Low and medium complexity systems">Sistemas de baixa e média complexidade</li>
       </ul>
     </div>
@@ -299,9 +294,9 @@
 
   <div class="quem-text reveal">
     <div class="sec-label" data-pt="Nossa história" data-en="Our story">Nossa história</div>
-    <h2 data-pt="Nascemos em Ribeirão Preto<br>para construir marcas com propósito"
-    data-en="Born in Ribeirão Preto<br>to build brands with purpose">
-    Nascemos em Ribeirão Preto<br>para construir marcas com propósito
+    <h2 data-pt="Nascemos em Ribeirão Preto<br>para ajudar você a crescer"
+    data-en="Born in Ribeirão Preto<br>to help you grow">
+    Nascemos em Ribeirão Preto<br>para ajudar você a crescer
     </h2>
 
     <p data-pt="Desde 2010, a Limão Cravo une design, marketing e tecnologia para transformar ideias em experiências que aproximam marcas e pessoas."
@@ -353,18 +348,18 @@
 
 <!-- ── CTA FINAL ── -->
 <section class="cta-final" id="cta">
-  <h2 data-pt="Vamos conversar sobre<br>o próximo passo da<br><em>sua marca?</em>"
-      data-en="Let's talk about the<br>next step for<br><em>your brand?</em>">
-    Vamos conversar sobre<br>o próximo passo da<br><em>sua marca?</em>
+  <h2 data-pt="Vamos conversar sobre<br>o próximo passo do<br><em>seu negócio?</em>"
+      data-en="Let's talk about the<br>next step for<br><em>your business?</em>">
+    Vamos conversar sobre<br>o próximo passo do<br><em>seu negócio?</em>
   </h2>
   <p data-pt="Conte pra gente seu desafio. A Limão Cravo cuida do diagnóstico à entrega final, unindo design, marketing e tecnologia."
      data-en="Tell us your challenge. Limão Cravo handles everything from diagnosis to final delivery, combining design, marketing and technology.">
     Conte pra gente seu desafio. A Limão Cravo cuida do diagnóstico à entrega final, unindo design, marketing e tecnologia.
   </p>
   <div class="cta-btns">
-    <a class="btn-cta-main" href="#"
+    <a class="btn-cta-main" href="orcamento.html"
        data-pt="Solicitar Orçamento" data-en="Request a Quote">Solicitar Orçamento</a>
-    <a class="btn-cta-sec" href="#"
+    <a class="btn-cta-sec" href="#" data-whatsapp
        data-pt="Falar com um Especialista" data-en="Talk to a Specialist">Falar com um Especialista</a>
   </div>
 </section>
@@ -373,7 +368,7 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <img src="limao-cravo-logo-1.png" alt="Limão Cravo">
+      <img src="imagens/limao-cravo-logo-1.png" alt="Limão Cravo">
       <p data-pt="Agência integrada de Design, Marketing e Tecnologia. Desde 2010 em Ribeirão Preto."
          data-en="Integrated agency of Design, Marketing and Technology. Since 2010 in Ribeirão Preto.">
         Agência integrada de Design, Marketing e Tecnologia. Desde 2010 em Ribeirão Preto.
@@ -389,20 +384,20 @@
     <div class="footer-col">
       <h4 data-pt="Serviços" data-en="Services">Serviços</h4>
       <ul>
-        <li><a href="#" data-pt="Design e Branding" data-en="Design and Branding">Design e Branding</a></li>
-        <li><a href="#" data-pt="Marketing Digital" data-en="Digital Marketing">Marketing Digital</a></li>
-        <li><a href="#" data-pt="Desenvolvimento Web" data-en="Web Development">Desenvolvimento Web</a></li>
-        <li><a href="#" data-pt="E-commerce" data-en="E-commerce">E-commerce</a></li>
-        <li><a href="#" data-pt="SEO" data-en="SEO">SEO</a></li>
+        <li><a href="servicos/branding.html" data-pt="Design e Branding" data-en="Design and Branding">Design e Branding</a></li>
+        <li><a href="servicos/trafego-pago.html" data-pt="Marketing Digital" data-en="Digital Marketing">Marketing Digital</a></li>
+        <li><a href="servicos/sites.html" data-pt="Desenvolvimento Web" data-en="Web Development">Desenvolvimento Web</a></li>
+        <li><a href="servicos/sites.html#ecommerce" data-pt="E-commerce" data-en="E-commerce">E-commerce</a></li>
+        <li><a href="servicos/seo-performance.html" data-pt="SEO" data-en="SEO">SEO</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h4 data-pt="Links Úteis" data-en="Useful Links">Links Úteis</h4>
       <ul>
-        <li><a href="#" data-pt="Cases" data-en="Cases">Cases</a></li>
-        <li><a href="#" data-pt="Blog" data-en="Blog">Blog</a></li>
-        <li><a href="#" data-pt="Quem somos" data-en="About us">Quem somos</a></li>
+        <li><a href="#cases" data-pt="Cases" data-en="Cases">Cases</a></li>
+        <li><a href="https://limaocravo.blog/" target="_blank" rel="noopener" data-pt="Blog" data-en="Blog">Blog</a></li>
+        <li><a href="sobre-nos.html" data-pt="Quem somos" data-en="About us">Quem somos</a></li>
         <li><a href="#" data-pt="Perguntas frequentes" data-en="FAQ">Perguntas frequentes</a></li>
         <li><a href="#" data-pt="Política de privacidade" data-en="Privacy policy">Política de privacidade</a></li>
       </ul>
