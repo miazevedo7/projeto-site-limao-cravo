@@ -234,6 +234,25 @@ document.addEventListener("DOMContentLoaded", carregarBlog);
 
 })();
 
+/* ── Header some ao rolar para baixo (só tem efeito visual no mobile) ── */
+(function headerAutoHide() {
+    const header = document.getElementById('header');
+    if (!header) return;
+    let lastScrollY = window.scrollY;
+    const threshold = 80;
+
+    window.addEventListener('scroll', () => {
+        if (header.classList.contains('nav-open')) return;
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY && currentScrollY > threshold) {
+            header.classList.add('header-hidden');
+        } else {
+            header.classList.remove('header-hidden');
+        }
+        lastScrollY = currentScrollY;
+    }, { passive: true });
+})();
+
 /* ── Menu mobile (hambúrguer + acordeão de Serviços) ── */
 (function mobileNav() {
     const header = document.getElementById('header');

@@ -64,7 +64,7 @@
       background: rgba(250,246,238,.92);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(212,101,47,.1);
-      transition: box-shadow .3s;
+      transition: box-shadow .3s, transform .3s ease;
     }
     header.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,.08); }
 
@@ -888,6 +888,14 @@ footer {
     @media (max-width: 768px) {
       .nav-toggle { display:flex; }
       .btn-cta-header { display:none; }
+
+      /* Hambúrguer no canto direito, troca de idioma centralizada no header */
+      .header-right {
+        position:absolute; left:50%; top:50%; transform:translate(-50%, -50%);
+      }
+
+      /* Header some ao rolar para baixo, volta ao rolar para cima */
+      header.header-hidden { transform:translateY(-100%); }
 
       nav {
         display:none;
