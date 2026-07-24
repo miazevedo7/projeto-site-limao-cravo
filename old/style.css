@@ -75,7 +75,7 @@
     .lang-toggle button.active { background:var(--espresso); color:var(--cream); opacity:1; }
     .btn-cta-header {
       background:var(--gold); color:var(--espresso);
-      padding:10px 20px; border-radius:10px; font-size:13px; font-weight:700;
+      padding:10px 20px; border-radius:999px; font-size:13px; font-weight:700;
       transition: background .2s, transform .2s;
     }
     .btn-cta-header:hover { background:var(--gold-dark); transform:translateY(-1px); }
@@ -95,7 +95,7 @@
     top: 0;
     z-index: 1;
 
-    padding: 180px 5% 0;
+    padding: 100px 5% 0;
 
     background: var(--espresso);
 
@@ -196,6 +196,18 @@ footer {
 
     /* Palavra rotativa dentro do H1 (troca entre os 3 pilares) */
     .rotor-line { display:inline-flex; align-items:center; gap:12px; }
+    .rotor-dot {
+      width:10px; height:10px; border-radius:50%;
+      background:var(--gold);
+      box-shadow:0 0 0 0 rgba(231,174,1,.55);
+      animation:rotor-pulse 2.4s ease-out infinite;
+      flex-shrink:0;
+    }
+    @keyframes rotor-pulse {
+      0%   { box-shadow:0 0 0 0 rgba(231,174,1,.55); }
+      70%  { box-shadow:0 0 0 12px rgba(231,174,1,0); }
+      100% { box-shadow:0 0 0 0 rgba(231,174,1,0); }
+    }
     .rotor-inline {
       position: relative;
       display: inline-block;
@@ -224,6 +236,7 @@ footer {
     }
     @media (prefers-reduced-motion: reduce) {
       .rotor-track { transition: none; }
+      .rotor-dot { animation: none; }
     }
 
     .hero-sub {
@@ -234,14 +247,14 @@ footer {
     .hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
     .btn-primary {
       background:var(--gold); color:var(--espresso);
-      padding:15px 30px; border-radius:12px; font-weight:700; font-size:14px;
+      padding:15px 30px; border-radius:999px; font-weight:700; font-size:14px;
       box-shadow:0 8px 28px rgba(231,174,1,.35);
       transition:background .2s, transform .2s;
     }
     .btn-primary:hover { background:var(--gold-dark); transform:translateY(-2px); }
     .btn-ghost {
       color:var(--white); font-weight:600; font-size:14px;
-      border:1px solid rgba(255,255,255,.25); padding:15px 26px; border-radius:12px;
+      border:1px solid rgba(255,255,255,.25); padding:15px 26px; border-radius:999px;
       transition:background .2s;
     }
     .btn-ghost:hover { background:rgba(255,255,255,.08); }
@@ -458,35 +471,6 @@ footer {
       width:130px; height:130px; border-radius:50%;
       border:12px solid var(--citrus);
     }
-
-    /* Círculos decorativos presos ao fundo de uma seção (atrás do conteúdo) */
-    .deco-ring { position:absolute; border-radius:50%; }
-
-    .cases-deco {
-      position:absolute; inset:0; overflow:hidden; z-index:0; pointer-events:none;
-    }
-    .dr-cases-1 { top:6%;   right:-50px; width:150px; height:150px; border:14px solid var(--citrus); }
-    .dr-cases-2 { top:52%;  left:-40px;  width:100px; height:100px; border:10px solid var(--terra); }
-    .dr-cases-3 { bottom:4%; right:18%;  width:70px;  height:70px;  border:8px  solid var(--gold); }
-
-    .blog-deco {
-      position:absolute; inset:0; overflow:hidden; z-index:0; pointer-events:none;
-    }
-    .dr-blog-1 { top:8%;    left:-45px;  width:120px; height:120px; border:12px solid var(--terra); }
-    .dr-blog-2 { bottom:6%; right:-35px; width:140px; height:140px; border:13px solid var(--citrus); }
-
-    /* Garante que o conteúdo real fique sempre acima da camada decorativa
-       (por padrão do CSS, um elemento posicionado fica acima de conteúdo
-       estático mesmo com z-index:0 — por isso este reforço é necessário) */
-    .cases > *:not(.cases-deco),
-    .blog > *:not(.blog-deco) {
-      position: relative;
-      z-index: 1;
-    }
-
-    @media (max-width: 900px) {
-      .cases-deco, .blog-deco { display:none; }
-    }
     .quem-badge {
       position:absolute; bottom:28px; left:-20px;
       background:var(--espresso); color:var(--white);
@@ -607,14 +591,14 @@ footer {
     .cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; position:relative; z-index:1; }
     .btn-cta-main {
       background:var(--gold); color:var(--espresso);
-      padding:18px 36px; border-radius:12px; font-weight:700; font-size:15px;
+      padding:18px 36px; border-radius:999px; font-weight:700; font-size:15px;
       box-shadow:0 10px 32px rgba(231,174,1,.35);
       transition:background .2s, transform .2s;
     }
     .btn-cta-main:hover { background:var(--gold-dark); transform:translateY(-2px); }
     .btn-cta-sec {
       border:2px solid rgba(255,255,255,.25); color:var(--white);
-      padding:18px 32px; border-radius:12px; font-weight:700; font-size:15px;
+      padding:18px 32px; border-radius:999px; font-weight:700; font-size:15px;
       transition:background .2s;
     }
     .btn-cta-sec:hover { background:rgba(255,255,255,.08); }

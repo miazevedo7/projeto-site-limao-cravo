@@ -123,13 +123,7 @@ document.addEventListener("DOMContentLoaded", carregarBlog);
 (function heroRotor() {
 
     const box = document.getElementById('heroRotor');
-    const track = document.getElementById('rotorTrack');
-
-    if (!box || !track) {
-        console.warn('[heroRotor] não encontrou #heroRotor ou #rotorTrack no HTML — a rotação não vai rodar. Confira se o index.html está atualizado.');
-        return;
-    }
-    console.log('[heroRotor] elementos encontrados, iniciando a rotação.');
+    if (!box) return;
 
     const words = {
         pt: [
@@ -146,29 +140,14 @@ document.addEventListener("DOMContentLoaded", carregarBlog);
 
     const period = 2400;
     const transitionMs = 560;
-    const lineHeightEm = 1.15;
 
+    let current = document.getElementById('heroWordA');
+    let incoming = document.getElementById('heroWordB');
     const measure = box.querySelector('.rotor-measure');
+
     let list = words.pt;
     let idx = 0;
     let timer = null;
-
-    // Monta a fita: as N palavras + uma cópia da primeira no final,
-    // pra dar a volta sem "voltar visualmente" (é idêntica à original).
-    function buildTrack() {
-        track.innerHTML = '';
-        list.forEach(w => {
-            const s = document.createElement('span');
-            s.className = 'rotor-word';
-            s.textContent = w.text;
-            track.appendChild(s);
-        });
-        const clone = document.createElement('span');
-        clone.className = 'rotor-word';
-        clone.textContent = list[0].text;
-        clone.setAttribute('aria-hidden', 'true');
-        track.appendChild(clone);
-    }
 
     function measureWidth(text) {
         measure.textContent = text;
@@ -183,53 +162,58 @@ document.addEventListener("DOMContentLoaded", carregarBlog);
         box.style.color = color;
     }
 
-    function goTo(i, instant) {
-        if (instant) track.style.transition = 'none';
-        track.style.transform = 'translateY(-' + (i * lineHeightEm) + 'em)';
-        if (instant) {
-            void track.offsetHeight; // força o navegador a aplicar antes de reativar a transição
-            track.style.transition = '';
-        }
-    }
-
-    function paintCurrent() {
-        const w = list[idx % list.length];
-        setBoxWidth(w.text);
-        applyColor(w.color);
+    function paint(index) {
+        current.textContent = list[index].text;
+        incoming.textContent = list[(index + 1) % list.length].text;
+        setBoxWidth(list[index].text);
+        applyColor(list[index].color);
     }
 
     function tick() {
-        idx++;
-        goTo(idx, false);
-        paintCurrent();
+        idx = (idx + 1) % list.length;
+        const nextNext = list[(idx + 1) % list.length];
 
-        // Ao chegar na cópia (idêntica à primeira palavra), espera a
-        // transição terminar e volta pro início instantaneamente.
-        if (idx === list.length) {
-            setTimeout(() => {
-                idx = 0;
-                goTo(0, true);
-            }, transitionMs);
-        }
+        current.classList.add('rotor-exit');
+        incoming.classList.remove('rotor-incoming');
+        setBoxWidth(list[idx].text);
+        applyColor(list[idx].color);
+
+        setTimeout(() => {
+            current.classList.remove('rotor-exit');
+            current.classList.add('rotor-instant');
+            current.textContent = nextNext.text;
+            current.style.transform = 'translateY(100%)';
+            void current.offsetHeight;
+            current.classList.remove('rotor-instant');
+            current.classList.add('rotor-incoming');
+            current.style.transform = ''; // solta o inline style: sem isso, ele grudava e travava a próxima troca
+
+            const tmp = current;
+            current = incoming;
+            incoming = tmp;
+        }, transitionMs);
     }
 
     function start() {
         if (timer) clearInterval(timer);
+        const reduceMotion = window.matchMedia &&
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduceMotion) return;
         timer = setInterval(tick, period);
     }
 
     window.setHeroRotorLang = function (lang) {
         list = words[lang] || words.pt;
         idx = 0;
-        buildTrack();
-        goTo(0, true);
-        paintCurrent();
+        current.classList.remove('rotor-exit', 'rotor-incoming', 'rotor-instant');
+        current.style.transform = '';
+        incoming.classList.remove('rotor-exit', 'rotor-instant');
+        incoming.classList.add('rotor-incoming');
+        incoming.style.transform = '';
+        paint(0);
     };
 
-    buildTrack();
-    goTo(0, true);
-    paintCurrent();
+    paint(0);
     start();
-    console.log('[heroRotor] fita montada com', track.children.length, 'palavras. Largura da caixa:', box.style.width);
 
 })();
