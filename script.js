@@ -276,6 +276,15 @@ document.addEventListener("DOMContentLoaded", carregarBlog);
     });
 })();
 
+/* ── Acordeão de Perguntas Frequentes ── */
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(isOpen));
+    });
+});
+
 /* ── WhatsApp ("Falar com um Especialista") ──
    Número centralizado aqui: quando o número real da Limão Cravo estiver
    disponível, basta trocar WHATSAPP_NUMBER — todos os links do site
