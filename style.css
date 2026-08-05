@@ -258,12 +258,12 @@ footer {
       height: 1.15em;
       min-width: 140px;
       color: var(--citrus);
-      transition: color .5s ease, width .5s cubic-bezier(.65,0,.35,1);
+      transition: color .3s ease, width .3s cubic-bezier(.65,0,.35,1);
     }
     .rotor-track {
       display: flex;
       flex-direction: column;
-      transition: transform .55s cubic-bezier(.65,0,.35,1);
+      transition: transform .35s cubic-bezier(.65,0,.35,1);
     }
     .rotor-word {
       height: 1.15em;
