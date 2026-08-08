@@ -33,7 +33,7 @@
     }
     ::-webkit-scrollbar-thumb:hover { background:var(--gold-dark); background-clip:padding-box; }
     body {
-      font-family: Helvetica, Arial, sans-serif;
+      font-family: Arial, sans-serif;
       background: var(--cream);
       color: var(--espresso);
       overflow-x: hidden;
@@ -690,6 +690,24 @@ footer {
     .footer-legal-links { list-style:none; display:flex; gap:24px; }
     .footer-legal-links a { font-size:12px; transition:color .2s; }
     .footer-legal-links a:hover { color:var(--citrus); }
+    .footer-credit { font-size:12px; color:rgba(250,246,238,.4); text-align:center; }
+    .footer-credit a { color:rgba(250,246,238,.72); }
+    .footer-credit a:hover { color:var(--citrus); }
+
+    /* --- Botão voltar ao topo --- */
+    .to-top {
+      position:fixed; bottom:24px; right:24px; z-index:300;
+      width:46px; height:46px; border-radius:50%;
+      background:var(--gold); color:var(--espresso);
+      border:none; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 6px 20px rgba(0,0,0,.25);
+      opacity:0; visibility:hidden; transform:translateY(10px);
+      transition:opacity .3s, transform .3s, visibility .3s, background .2s;
+    }
+    .to-top.visible { opacity:1; visibility:visible; transform:translateY(0); }
+    .to-top:hover { background:var(--gold-dark); }
+    .to-top svg { width:22px; height:22px; }
     .cert-badges { display:flex; gap:16px; align-items:center; flex-wrap:wrap; }
     .cert { font-size:10px; font-weight:700; padding:4px 10px; border-radius:6px; background:rgba(255,255,255,.06); color:rgba(255,255,255,.5); }
     .cert-badge-img { height:56px; width:auto; border-radius:6px; }

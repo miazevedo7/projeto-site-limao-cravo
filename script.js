@@ -289,7 +289,7 @@ document.querySelectorAll('.faq-question').forEach(btn => {
    Número centralizado aqui: quando o número real da Limão Cravo estiver
    disponível, basta trocar WHATSAPP_NUMBER — todos os links do site
    (marcados com o atributo data-whatsapp) são atualizados automaticamente. */
-const WHATSAPP_NUMBER = '5500000000000'; // TODO: substituir pelo número real da Limão Cravo
+const WHATSAPP_NUMBER = '5511978160202';
 const WHATSAPP_MESSAGE = 'Olá! Vim pelo site da Limão Cravo e gostaria de falar com um especialista.';
 
 document.querySelectorAll('[data-whatsapp]').forEach(el => {
@@ -297,6 +297,17 @@ document.querySelectorAll('[data-whatsapp]').forEach(el => {
     el.setAttribute('target', '_blank');
     el.setAttribute('rel', 'noopener');
 });
+
+/* ── Botão "voltar ao topo" ──
+   Aparece depois de rolar um pouco e leva de volta ao topo com scroll suave. */
+(function () {
+    const btn = document.getElementById('toTop');
+    if (!btn) return;
+    const toggle = () => btn.classList.toggle('visible', window.scrollY > 400);
+    window.addEventListener('scroll', toggle, { passive: true });
+    toggle();
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+})();
 
 /* ── Formulário de orçamento (orcamento.html) ──
    Ainda sem backend: só valida os campos obrigatórios no navegador e

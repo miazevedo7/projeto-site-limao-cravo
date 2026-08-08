@@ -1,0 +1,184 @@
+<?php $pageTitle = "Perguntas Frequentes — Limão Cravo"; $base = ''; $assets = '../'; include __DIR__ . '/includes/header.php'; ?>
+<!-- ── HERO ── -->
+<section class="about-hero">
+  <div class="about-hero-inner">
+    <div class="sec-label" data-pt="Dúvidas" data-en="FAQ">Dúvidas</div>
+    <h1 data-pt="Perguntas Frequentes" data-en="Frequently Asked Questions">Perguntas Frequentes</h1>
+    <p class="about-hero-sub"
+       data-pt="Reunimos aqui as dúvidas mais comuns sobre como trabalhamos. Não achou a sua? É só chamar a gente."
+       data-en="We've gathered the most common questions about how we work. Didn't find yours? Just reach out.">
+      Reunimos aqui as dúvidas mais comuns sobre como trabalhamos. Não achou a sua? É só chamar a gente.
+    </p>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="faq-section">
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span data-pt="O que é a Limão Cravo?" data-en="What is Limão Cravo?">O que é a Limão Cravo?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p data-pt="Somos uma agência integrada de Design, Marketing e Tecnologia, fundada em 2010 em Ribeirão Preto (SP). Unimos essas três frentes sob o mesmo teto para cuidar do diagnóstico à entrega final de cada projeto."
+             data-en="We're an integrated Design, Marketing and Technology agency, founded in 2010 in Ribeirão Preto (SP). We bring these three fronts together under one roof, from diagnosis to final delivery of every project.">
+            Somos uma agência integrada de Design, Marketing e Tecnologia, fundada em 2010 em Ribeirão Preto (SP). Unimos essas três frentes sob o mesmo teto para cuidar do diagnóstico à entrega final de cada projeto.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span data-pt="Vocês atendem empresas fora de Ribeirão Preto?" data-en="Do you work with businesses outside Ribeirão Preto?">Vocês atendem empresas fora de Ribeirão Preto?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p data-pt="Sim. Nascemos em Ribeirão Preto e continuamos atendendo a cidade e região, e hoje também atendemos empresas em São Paulo capital. Fora dessas praças, seguimos disponíveis remotamente em todo o Brasil. Reuniões, alinhamentos e entregas funcionam 100% à distância quando necessário."
+             data-en="Yes. We were founded in Ribeirão Preto and continue serving the city and region, and today we also serve businesses in São Paulo city. Beyond those, we're available remotely across all of Brazil. Meetings, alignments and deliveries all work fully remote when needed.">
+            Sim. Nascemos em Ribeirão Preto e continuamos atendendo a cidade e região, e hoje também atendemos empresas em São Paulo capital. Fora dessas praças, seguimos disponíveis remotamente em todo o Brasil. Reuniões, alinhamentos e entregas funcionam 100% à distância quando necessário.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span data-pt="Quais serviços de Design vocês oferecem?" data-en="What Design services do you offer?">Quais serviços de Design vocês oferecem?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p data-pt="Branding e identidade visual, design gráfico e editorial, ilustração, embalagens e audiovisual/motion. Você pode ver o detalhe de cada um no menu Serviços."
+             data-en="Branding and visual identity, graphic and editorial design, illustration, packaging and audiovisual/motion. You can see the detail of each one in the Services menu.">
+            Branding e identidade visual, design gráfico e editorial, ilustração, embalagens e audiovisual/motion. Você pode ver o detalhe de cada um no menu Serviços.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span data-pt="Quais serviços de Marketing vocês oferecem?" data-en="What Marketing services do you offer?">Quais serviços de Marketing vocês oferecem?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p data-pt="Social media, tráfego pago (Google e Meta Ads), inbound marketing e SEO/performance. Sempre com acompanhamento de métricas para saber o que está funcionando."
+             data-en="Social media, paid traffic (Google and Meta Ads), inbound marketing and SEO/performance. Always with metric tracking so we know what's working.">
+            Social media, tráfego pago (Google e Meta Ads), inbound marketing e SEO/performance. Sempre com acompanhamento de métricas para saber o que está funcionando.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span data-pt="Vocês desenvolvem sites e sistemas?" data-en="Do you build websites and systems?">Vocês desenvolvem sites e sistemas?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p data-pt="Sim. Sites institucionais, editoriais e e-commerce, além de UX/UI e sistemas web sob medida para automatizar processos internos do seu negócio."
+             data-en="Yes. Institutional, editorial and e-commerce websites, plus UX/UI and custom web systems to automate your business's internal processes.">
+            Sim. Sites institucionais, editoriais e e-commerce, além de UX/UI e sistemas web sob medida para automatizar processos internos do seu negócio.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span data-pt="Como funciona o processo de trabalho?" data-en="How does the work process work?">Como funciona o processo de trabalho?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p data-pt="Seguimos 5 etapas: diagnóstico, estratégia, criação, implementação e resultados. Entendemos o negócio antes de propor qualquer solução, e continuamos acompanhando os números depois da entrega."
+             data-en="We follow 5 steps: diagnosis, strategy, creation, implementation and results. We understand the business before proposing any solution, and keep tracking the numbers after delivery.">
+            Seguimos 5 etapas: diagnóstico, estratégia, criação, implementação e resultados. Entendemos o negócio antes de propor qualquer solução, e continuamos acompanhando os números depois da entrega.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span data-pt="Quanto tempo leva um projeto?" data-en="How long does a project take?">Quanto tempo leva um projeto?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p data-pt="Varia conforme o escopo. Um site institucional tem prazo diferente de uma campanha de tráfego pago contínua. Definimos um cronograma realista já no diagnóstico, antes de começar."
+             data-en="It varies by scope. An institutional website has a different timeline than an ongoing paid traffic campaign. We define a realistic schedule during the diagnosis, before starting.">
+            Varia conforme o escopo. Um site institucional tem prazo diferente de uma campanha de tráfego pago contínua. Definimos um cronograma realista já no diagnóstico, antes de começar.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span data-pt="Como faço para pedir um orçamento?" data-en="How do I request a quote?">Como faço para pedir um orçamento?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p data-pt="É só preencher o formulário na página Solicitar Orçamento ou chamar a gente direto no WhatsApp. Contamos pra você o que precisamos saber sobre o projeto e retornamos com uma proposta."
+             data-en="Just fill out the form on the Request a Quote page or message us directly on WhatsApp. We'll tell you what we need to know about the project and get back to you with a proposal.">
+            É só preencher o formulário na página <a href="orcamento.php" data-pt="Solicitar Orçamento" data-en="Request a Quote">Solicitar Orçamento</a> ou chamar a gente direto no WhatsApp. Contamos pra você o que precisamos saber sobre o projeto e retornamos com uma proposta.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span data-pt="Preciso contratar Design, Marketing e Tecnologia juntos?" data-en="Do I need to hire Design, Marketing and Technology together?">Preciso contratar Design, Marketing e Tecnologia juntos?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p data-pt="Não. Você pode contratar qualquer serviço isoladamente. A vantagem de ter as três frentes sob o mesmo teto aparece quando você decide integrá-las, mas isso não é obrigatório."
+             data-en="No. You can hire any service on its own. The advantage of having all three fronts under one roof shows up when you decide to integrate them, but that's not required.">
+            Não. Você pode contratar qualquer serviço isoladamente. A vantagem de ter as três frentes sob o mesmo teto aparece quando você decide integrá-las, mas isso não é obrigatório.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span data-pt="Vocês atendem empresas de qualquer porte e segmento?" data-en="Do you work with businesses of any size and industry?">Vocês atendem empresas de qualquer porte e segmento?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p data-pt="Sim. Já atendemos mais de 200 marcas de portes e segmentos diferentes. De negócios locais a operações que atuam em todo o país."
+             data-en="Yes. We've worked with over 200 brands of different sizes and industries. From local businesses to companies operating nationwide.">
+            Sim. Já atendemos mais de 200 marcas de portes e segmentos diferentes. De negócios locais a operações que atuam em todo o país.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="service-cta">
+  <h2 data-pt="Ainda tem alguma dúvida?" data-en="Still have a question?">Ainda tem alguma dúvida?</h2>
+  <p data-pt="Fala com a gente. Respondemos rapidinho."
+     data-en="Talk to us. We'll get back to you quickly.">
+    Fala com a gente. Respondemos rapidinho.
+  </p>
+  <div class="cta-btns">
+    <a class="btn-cta-main" href="orcamento.php" data-pt="Solicitar Orçamento" data-en="Request a Quote">Solicitar Orçamento</a>
+    <a class="btn-cta-sec" href="#" data-whatsapp data-pt="Falar com um Especialista" data-en="Talk to a Specialist">Falar com um Especialista</a>
+  </div>
+</section>
+<?php include __DIR__ . '/includes/footer.php'; ?>
